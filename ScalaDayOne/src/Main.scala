@@ -41,5 +41,10 @@ object Main {
 
     println(celsiusToFahrenhit(26.666666f))
 
+    def getSquare(num: Double) : Double = {
+      return num * num
+    }
+    assert(9 == getSquare(3))
+
   }
 }
