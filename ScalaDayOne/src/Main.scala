@@ -4,6 +4,7 @@
 object Main {
   def main(args: Array[String]): Unit = {
     val value = 17;
+//    value = 20; //cant change value
     println(value)
   }
 }
