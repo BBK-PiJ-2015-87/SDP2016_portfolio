@@ -28,11 +28,18 @@ object Main {
     println(checkWeather("rainy", 72))
 
 
-    def fahrenheitToCelsius(temperature: Int) : Int = {
-      return (temperature - 32) * 5/9
+    def fahrenheitToCelsius(temperature: Float) : Float = {
+      return (temperature - 32) * 5 / 9
     }
 
     println(fahrenheitToCelsius(80))
     println(fahrenheitToCelsius(81))
+
+    def celsiusToFahrenhit(temperature: Float) : Float = {
+      return temperature * 9 / 5 +32
+    }
+
+    println(celsiusToFahrenhit(26.666666f))
+
   }
 }
