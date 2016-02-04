@@ -3,7 +3,7 @@
  */
 object Main {
   def main(args: Array[String]): Unit = {
-    val value = 17;
+    var value = 17;
 //    value = 20; //cant change value
     println(value)
     var text = "ABC1234"
@@ -27,5 +27,12 @@ object Main {
     println(checkWeather("rainy", 82))
     println(checkWeather("rainy", 72))
 
+
+    def fahrenheitToCelsius(temperature: Int) : Int = {
+      return (temperature - 32) * 5/9
+    }
+
+    println(fahrenheitToCelsius(80))
+    println(fahrenheitToCelsius(81))
   }
 }
