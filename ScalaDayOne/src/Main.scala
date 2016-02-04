@@ -6,5 +6,8 @@ object Main {
     val value = 17;
 //    value = 20; //cant change value
     println(value)
+    var text = "ABC1234"
+    text = "ABC1234"
+    println(text)
   }
 }
