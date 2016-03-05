@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="cw-two" />
         <module name="mastermind" />
         <module name="SDP2016_portfolio" />
       </profile>
@@ -34,6 +35,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
+      <module name="cw-two" target="1.5" />
       <module name="mastermind" target="1.5" />
       <module name="SDP2016_portfolio" target="1.8" />
       <module name="springdi" target="1.6" />
