@@ -9,13 +9,13 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Workstation on 05/03/16.
  */
-public class UserInputGeneratorTest {
-    UserInputGenerator generator;
+public class ColouredPegsGeneratorTest {
+    ColouredPegsGenerator generator;
     List<Peg> expected;
 
     @Before
     public void setUp() throws Exception {
-        generator = new UserInputGenerator();
+        generator = new ColouredPegsGenerator();
         expected = new ArrayList<Peg>( );
     }
 
