@@ -29,7 +29,7 @@ public enum Colour {
         this.representation = representation;
     }
 
-    private String getRepresentation() {
+    public String getRepresentation() {
         return representation;
     }
 

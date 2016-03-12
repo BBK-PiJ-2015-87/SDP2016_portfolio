@@ -6,6 +6,15 @@ import java.util.List;
 public class RowImpl implements Row {
     private List<Peg> pegs;
 
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Peg peg : pegs) {
+            stringBuilder.append(peg.getColour().getRepresentation());
+        }
+        return stringBuilder.toString();
+    }
+
     RowImpl(List<Peg> pegs) {
         this.pegs = pegs;
     }
@@ -14,4 +23,10 @@ public class RowImpl implements Row {
     public int getNumberOfElements() {
         return 0;
     }
+
+    @Override
+    public List<Peg> elements() {
+        return pegs;
+    }
+
 }

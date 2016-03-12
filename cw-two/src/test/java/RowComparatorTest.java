@@ -1,35 +1,42 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by Workstation on 05/03/16.
  */
 public class RowComparatorTest {
-    Row guess, coded, feedback;
     RowComparator comparator;
+    Generator generator;
+
+
     @Before
     public void setUp() throws Exception {
-        Generator generator = new ColouredPegsGenerator();
+        generator = new ColouredPegsGenerator();
         comparator = new RowComparator();
-        String input1, input2;
-        input1 = "RRRR";
-        input2 = "RRRR";
-        guess = new RowImpl(generator.generate(input1));
-        coded = new RowImpl(generator.generate(input2));
+//        List<Peg> allMatch = new RowImpl(generator.generate("RRRR"));
     }
 
     @Test
-    public void testFeedback() throws Exception {
-        List<Peg> row = new ArrayList<>();
-        row.add(new PegImpl(Colour.BLACK));
-        row.add(new PegImpl(Colour.BLACK));
-        row.add(new PegImpl(Colour.BLACK));
-        row.add(new PegImpl(Colour.BLACK));
-        assertEquals(row, comparator.feedback(guess, coded));
+    public void shouldReturnAllBlackWhenAllPegsPosAndColourMatches() throws Exception {
+        Row coded = new RowImpl(generator.generate("RRRR"));
+        Row guess = new RowImpl(generator.generate("RRRR"));
+
+        Row feedback = comparator.feedback(guess, coded);
+
+        assertEquals("BlackBlackBlackBlack", feedback.toString());
     }
+
+    @Test
+    public void shouldReturnBlackWhichMatches() throws Exception {
+        Row coded = new RowImpl(generator.generate("RRRR"));
+        Row guess = new RowImpl(generator.generate("BBRR"));
+
+        Row feedback = comparator.feedback(guess, coded);
+
+        assertEquals("BlackBlack", feedback.toString());
+    }
+
+
 }
