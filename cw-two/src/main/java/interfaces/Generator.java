@@ -11,6 +11,8 @@ public interface Generator {
 
     List<Peg> generate(List<Colour> colours);
 
+    List<Peg> generate(String colours);
+
     default String generate(){
         return null;
     }
