@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 /**
  * Created by Rustam Drake and Vladimirs Ivanovs on 05/03/16.
  */
-public class RowComparator {
+public class PegListComparator {
 
     /**
      * Returns list of BLACK and WHITE pegs if matches found.
