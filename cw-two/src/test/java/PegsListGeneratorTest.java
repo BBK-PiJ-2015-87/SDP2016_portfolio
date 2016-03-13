@@ -11,13 +11,13 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Rustam Drake and Vladimirs Ivanovs on 05/03/16.
  */
-public class ColouredPegsGeneratorTest {
-    ColouredPegsGenerator generator;
+public class PegsListGeneratorTest {
+    PegsListGenerator generator;
     List<Colour> colours;
 
     @Before
     public void setUp() throws Exception {
-        generator = new ColouredPegsGenerator();
+        generator = new PegsListGenerator();
     }
 
     @Test

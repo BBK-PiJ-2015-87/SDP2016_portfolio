@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 /**
  * Created by Rustam Drake and Vladimirs Ivanovs on 05/03/16.
  */
-public class ColouredPegsGenerator implements Generator {
+public class PegsListGenerator implements Generator {
 
     /**
      * Generates list of colour pegs from colour list.
@@ -23,6 +23,12 @@ public class ColouredPegsGenerator implements Generator {
             .collect(Collectors.toList());
     }
 
+    /**
+     * Converts string to list of pegs.
+     *
+     * @param colours string of colour abbreviations
+     * @return list of pegs
+     */
     @Override
     public List<Peg> generate(String colours) {
         return generate(convertStringToColours(colours));
