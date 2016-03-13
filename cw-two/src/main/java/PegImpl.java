@@ -4,21 +4,20 @@ import java.util.Objects;
  * Created by Workstation on 05/03/16.
  */
 public class PegImpl implements Peg {
-    private Colour colour;
+    public Colour colour;
 
     public PegImpl(Colour colour) {
         this.colour = colour;
     }
 
+    @Override
     public Colour getColour() {
         return colour;
     }
 
     @Override
     public String toString() {
-        return "PegImpl{" +
-                "colour=" + colour +
-                '}';
+        return colour.toString();
     }
 
     @Override
