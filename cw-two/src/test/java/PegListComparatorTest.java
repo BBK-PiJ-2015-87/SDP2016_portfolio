@@ -69,8 +69,9 @@ public class PegListComparatorTest {
 
         result = comparator.findResult(coded, guess);
 
-        assertThat(result.stream().filter(p -> p.equals(Colour.WHITE)).count(), is(1));
-        assertThat(result.stream().filter(p -> p.equals(Colour.BLACK)).count(), is(1));
+        assertThat(result.size(), is(3));
+        assertThat(result.stream().filter(p -> p.getColour().equals(Colour.BLACK)).count(), is(1L));
+        assertThat(result.stream().filter(p -> p.getColour().equals(Colour.WHITE)).count(), is(2L));
     }
 
     /**
