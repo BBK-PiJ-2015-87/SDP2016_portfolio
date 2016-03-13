@@ -1,3 +1,6 @@
+import interfaces.Peg;
+import interfaces.Row;
+
 import java.util.List;
 
 /**
@@ -10,7 +13,7 @@ public class RowImpl implements Row {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (Peg peg : pegs) {
-            stringBuilder.append(peg.getColour().getRepresentation());
+            stringBuilder.append(peg.getColour().getAbbreviation());
         }
         return stringBuilder.toString();
     }
