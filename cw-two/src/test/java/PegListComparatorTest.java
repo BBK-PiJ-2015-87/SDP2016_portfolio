@@ -7,11 +7,14 @@ import org.junit.Test;
 import java.util.List;
 import java.util.Map;
 
+import static interfaces.Colour.BLACK;
+import static interfaces.Colour.WHITE;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Workstation on 05/03/16.
+ * Created by Rustam Drake and Vladimirs Ivanovs on 05/03/16.
  */
 public class PegListComparatorTest {
     Generator generator;
@@ -33,7 +36,7 @@ public class PegListComparatorTest {
         purple = new PegImpl(Colour.PURPLE);
         orange = new PegImpl(Colour.ORANGE);
         black = new PegImpl(Colour.BLACK);
-        white = new PegImpl(Colour.WHITE);
+        white = new PegImpl(WHITE);
 
         coded = null;
         guess = null;
@@ -59,61 +62,37 @@ public class PegListComparatorTest {
         result = comparator.findResult(coded, guess);
 
         assertThat(result.size(), is(6));
-        result.stream().allMatch(p -> p.getColour().equals(Colour.WHITE));
+        result.stream().allMatch(p -> p.getColour().equals(WHITE));
     }
 
     @Test
-    public void allPegsShouldMatchIfDifferentSize(){
-        coded = generator.generate("BPR");
-        guess = generator.generate("BBPPRRYY");
+    public void shouldGenerateAllBlackPegs(){
+        coded = generator.generate("BBOOPPGG");
+        result = comparator.findResult(coded, coded);
 
-        result = comparator.findResult(coded, guess);
-
-        assertThat(result.size(), is(3));
-        assertThat(result.stream().filter(p -> p.getColour().equals(Colour.BLACK)).count(), is(1L));
-        assertThat(result.stream().filter(p -> p.getColour().equals(Colour.WHITE)).count(), is(2L));
+        assertThat(result.size(), is(8));
+        result.stream().allMatch(p -> p.getColour().equals(Colour.BLACK));
     }
 
-    /**
     @Test
     public void noPegsShouldMatch(){
         coded = generator.generate("BBBBPPYY");
-        guess = generator.generate("OOOGGO");
+        guess = generator.generate("OOOGGOOO");
 
-        result = comparator.findMatchedColour(coded, guess);
-        result2 = comparator.findMatchedColour(guess, coded);
+        result = comparator.findResult(coded, guess);
 
-        assertThat(result.size(), is(0));
-        assertThat(result2.size(), is(0));
+        assertTrue(result.isEmpty());
     }
-
-    //
 
     @Test
     public void shouldReturnBlackWhichMatches() throws Exception {
         coded = generator.generate("BBBBPPYY");
         guess = generator.generate("BBBBYYPP");
 
-        feedback = comparator.findMaychedOnlyByColour(coded, guess);
+        feedback = comparator.findResult(coded, guess);
 
-        assertThat(feedback.stream().filter(peg -> peg.equals(black)).count(), is(4L));
-        assertThat(feedback.stream().filter(peg -> peg.equals(white)).count(), is(4L));
+        assertThat(feedback.stream().filter(peg -> peg.getColour().equals(WHITE)).count(), is(4L));
+        assertThat(feedback.stream().filter(peg -> peg.getColour().equals(BLACK)).count(), is(4L));
     }
 
-    @Test
-    public void shouldReturnCorrectMatches() throws Exception {
-//        coded = generator.generate("BRGBPOOY");
-//        guess = generator.generate("YBGBOYPP");
-
-        coded = generator.generate("YYGGGGGG");
-        guess = generator.generate("YYBBBBBB");
-
-
-        feedback = comparator.findMaychedOnlyByColour(coded, guess);
-        System.out.println(feedback);
-
-        assertThat(feedback.stream().filter(peg -> peg.equals(black)).count(), is(2L));
-        assertThat(feedback.stream().filter(peg -> peg.equals(white)).count(), is(4L));
-    }
-    **/
 }

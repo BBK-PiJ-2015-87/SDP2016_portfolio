@@ -25,6 +25,6 @@ public class PegsListGeneratorTest {
         colours = Arrays.asList(BLUE, YELLOW, RED, PURPLE, GREEN, ORANGE);
         List<Colour> result = generator.convertStringToColours("BYRPGO");
 
-        assertEquals(colours, generator.generate(result));
+        assertEquals(colours, result);
     }
 }

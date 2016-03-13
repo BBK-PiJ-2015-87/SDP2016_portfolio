@@ -38,7 +38,9 @@ public class PegListComparator {
      * @return filtered list
      */
     public static List<Peg> findMatchedByColourAndPos(List<Peg> coded, List<Peg> guess) {
-        return IntStream.range(0, coded.size())
+        //need this step if for some reason we want to use different size lists
+        int size = (coded.size() <= guess.size()) ? coded.size() : guess.size();
+        return IntStream.range(0, size)
                 .boxed()
                 .filter(i -> coded.get(i).equals(guess.get(i)))
                 .map(pos -> Colour.BLACK)
@@ -53,7 +55,7 @@ public class PegListComparator {
      * @return list of white pegs
      */
     public static List<Peg>  findMatchedOnlyByColour(List<Peg> coded, List<Peg> guess) {
-        Map<Peg, Long> colorMatched = findLowestValueColourPairs(frequency(findUnmatchedPosition(coded, guess)), frequency(findUnmatchedPosition(coded, guess)));
+        Map<Peg, Long> colorMatched = findLowestValueColourPairs(frequency(findUnmatchedPosition(coded, guess)), frequency(findUnmatchedPosition(guess, coded)));
 
         int numberOfColorMatched = colorMatched.values().stream().mapToInt(Number::intValue).sum();
 
