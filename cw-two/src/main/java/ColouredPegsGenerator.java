@@ -23,6 +23,11 @@ public class ColouredPegsGenerator implements Generator {
             .collect(Collectors.toList());
     }
 
+    @Override
+    public List<Peg> generate(String colours) {
+        return generate(convertStringToColours(colours));
+    }
+
     /**
      * Converts string to a list of colours.
      *
