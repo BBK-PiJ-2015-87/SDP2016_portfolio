@@ -1,3 +1,5 @@
+import interfaces.Game;
+
 public abstract class GameAbstractImpl implements Game {
     // if showCode is true then the secret code is revealed before
     // the gane starts. This will be used by graders of the program
@@ -5,7 +7,7 @@ public abstract class GameAbstractImpl implements Game {
     private boolean showCode;
 
     /**
-     * Create a Game object.
+     * Create a interfaces.Game object.
      *
      * @param easy If easy is true the secret code will be
      *             revealed at all times when playing the game. If easy is

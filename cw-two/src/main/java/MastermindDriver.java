@@ -1,3 +1,5 @@
+import interfaces.Game;
+
 public class MastermindDriver {
 
     // Example - change as you need to...

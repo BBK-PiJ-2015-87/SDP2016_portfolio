@@ -3,7 +3,7 @@
  */
 public class GameImpl extends GameAbstractImpl {
     /**
-     * Create a Game object.
+     * Create a interfaces.Game object.
      *
      * @param easy If easy is true the secret code will be
      *             revealed at all times when playing the game. If easy is
