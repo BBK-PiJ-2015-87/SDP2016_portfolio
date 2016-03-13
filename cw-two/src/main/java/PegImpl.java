@@ -1,7 +1,12 @@
+import interfaces.Colour;
+import interfaces.Peg;
+
 import java.util.Objects;
 
 /**
- * Created by Workstation on 05/03/16.
+ * Implementation of peg.
+ *
+ * Created by Rustam Drake and Vladimirs Ivanovs on 05/03/16.
  */
 public class PegImpl implements Peg {
     public Colour colour;
