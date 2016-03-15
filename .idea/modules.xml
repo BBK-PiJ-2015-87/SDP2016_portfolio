@@ -6,7 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/SML/SML.iml" filepath="$PROJECT_DIR$/SML/SML.iml" />
       <module fileurl="file://$PROJECT_DIR$/SML_Scala/SML_Scala.iml" filepath="$PROJECT_DIR$/SML_Scala/SML_Scala.iml" />
       <module fileurl="file://$PROJECT_DIR$/cw-two/cw-two.iml" filepath="$PROJECT_DIR$/cw-two/cw-two.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cw-two-scala/cw-two-scala.iml" filepath="$PROJECT_DIR$/cw-two-scala/cw-two-scala.iml" />
       <module fileurl="file://$PROJECT_DIR$/di/di.iml" filepath="$PROJECT_DIR$/di/di.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patterns/patterns.iml" filepath="$PROJECT_DIR$/patterns/patterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/springdi/springdi.iml" filepath="$PROJECT_DIR$/springdi/springdi.iml" />
       <module fileurl="file://$PROJECT_DIR$/week01/week01.iml" filepath="$PROJECT_DIR$/week01/week01.iml" />
       <module fileurl="file://$PROJECT_DIR$/week04/week04.iml" filepath="$PROJECT_DIR$/week04/week04.iml" />
