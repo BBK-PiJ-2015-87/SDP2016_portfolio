@@ -1,5 +1,3 @@
-package sml.tests
-
 import org.scalatest.{FunSuite, Matchers}
 import sml.LinInstruction
 
