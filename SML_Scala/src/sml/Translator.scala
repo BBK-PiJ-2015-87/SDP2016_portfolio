@@ -1,4 +1,6 @@
 package sml
+import scala.reflect.runtime.universe._
+import scala.reflect.runtime.currentMirror
 
 /*
  * The translator of a <b>S</b><b>M</b>al<b>L</b> program.
@@ -14,6 +16,7 @@ class Translator(fileName: String) {
 
 
 
+
   // word + line is the part of the current line that's not yet processed
   // word has no whitespace
   // If word and line are not empty, line begins with whitespace
@@ -21,7 +24,7 @@ class Translator(fileName: String) {
   /**
     * translate the small program in the file into lab (the labels) and prog (the program)
     */
-  def readAndTranslate(m: Machine): Machine = {
+  def readAndTranslateCASE(m: Machine): Machine = {
     val labels = m.labels
     var program = m.prog
     import scala.io.Source
@@ -52,7 +55,47 @@ class Translator(fileName: String) {
     }
     new Machine(labels, program)
   }
+
+
+  def readAndTranslate(m: Machine): Machine = {
+    val labels = m.labels
+    var program = m.prog
+    import scala.io.Source
+    val lines = Source.fromFile(fileName).getLines
+    for (line <- lines) {
+      val fields = line.split(" ")
+      if (fields.length > 0) {
+        labels.add(fields(0))
+        var klass = "sml." + fields(1).capitalize + "Instruction"
+        var cl = Class.forName(klass)
+        val constructor = cl.getConstructors()(0)
+
+        var list = List[AnyRef]()
+        var string = "a add 1 1 1"
+        val values = string.split(" ")
+        var a:AnyRef = null;
+
+        for (x <- 0 until values.length){
+          try {
+            a = new Integer(values(x).toInt)
+          } catch {
+            case ioe: NumberFormatException => a = values(x)
+          }
+          list::=a
+        }
+
+        var instance = constructor.newInstance(list.reverse:_*).asInstanceOf[Instruction]
+
+        program = program :+ instance
+
+      }
+    }
+    new Machine(labels, program)
+  }
+
 }
+
+
 
 object Translator {
   def apply(file: String) =
