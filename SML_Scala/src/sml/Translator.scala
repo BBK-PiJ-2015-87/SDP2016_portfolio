@@ -71,8 +71,7 @@ class Translator(fileName: String) {
         val constructor = cl.getConstructors()(0)
 
         var list = List[AnyRef]()
-        var string = "a add 1 1 1"
-        val values = string.split(" ")
+        val values = line.split(" ")
         var a:AnyRef = null;
 
         for (x <- 0 until values.length){
