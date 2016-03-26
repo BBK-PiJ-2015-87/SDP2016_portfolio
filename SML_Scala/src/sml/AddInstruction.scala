@@ -4,7 +4,7 @@ package sml
   * Instruction to add two register values.
   *
   * @param label of instruction
-  * @param op operation of instruction (add)
+  * @param op operation code of instruction (add)
   * @param result of the operation
   * @param op1 first operand
   * @param op2 second operand

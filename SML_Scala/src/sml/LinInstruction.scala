@@ -1,9 +1,12 @@
 package sml
 
 /**
-  * This class ....
+  * Instruction to move value to a register.
   *
-  * @author someone
+  * @param label of instruction
+  * @param opcode of instruction
+  * @param register destination
+  * @param value to be moved to register
   */
 case class LinInstruction(label: String, opcode: String, register: Int, value: Int) extends Instruction(label, opcode) {
 
@@ -11,7 +14,7 @@ case class LinInstruction(label: String, opcode: String, register: Int, value: I
     m.regs(register) = value
 
   override def toString(): String = {
-    super.toString + " register " + register + " value is " + value + "\n"
+    super.toString + " register " + register + " value is " + value
   }
 }
 
