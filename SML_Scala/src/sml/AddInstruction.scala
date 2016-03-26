@@ -1,11 +1,14 @@
 package sml
 
 /**
-  * This class ....
+  * Instruction to add two register values.
   *
-  * @author someone
+  * @param label of instruction
+  * @param op operation of instruction (add)
+  * @param result of the operation
+  * @param op1 first operand
+  * @param op2 second operand
   */
-
 class AddInstruction(label: String, op: String, val result: Int, val op1: Int, val op2: Int)
   extends Instruction(label, op) {
 
