@@ -22,23 +22,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="cw-two" />
         <module name="mastermind" />
         <module name="patterns" />
-        <module name="SDP2016_portfolio" />
-      </profile>
-      <profile default="false" name="Annotation profile for springdi" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="springdi" />
-      </profile>
-      <profile default="false" name="Annotation profile for cw-two" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="cw-two" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
