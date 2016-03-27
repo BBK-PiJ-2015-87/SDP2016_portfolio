@@ -32,9 +32,9 @@ case class Machine(labels: Labels, prog: Vector[Instruction]) {
 }
 
 object Machine extends App {
-  //for tests without a command line
-  override val args:Array[String] = new Array[String](3)
-  args(0) = "C:\\Users\\Workstation\\Desktop\\IdeaProjects\\Birkbeck\\SDP2016_portfolio\\SML_Scala\\src\\factorial.sml"
+//  //for tests without a command line
+//  override val args:Array[String] = new Array[String](3)
+//  args(0) = "C:\\Users\\Workstation\\Desktop\\IdeaProjects\\Birkbeck\\SDP2016_portfolio\\SML_Scala\\src\\factorial.sml"
 
   if (args.length == 0) {
     println("Machine: args should be sml code file to execute")

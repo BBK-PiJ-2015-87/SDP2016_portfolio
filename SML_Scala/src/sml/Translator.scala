@@ -62,30 +62,24 @@ class Translator(fileName: String) {
       val fields = line.split(" ")
       if (fields.length > 0) {
         labels.add(fields(0))
-        //class name to get constructor via reflection
-        val className = "sml." + fields(1).capitalize + "Instruction"
-        val klass = Class.forName(className)
-        val constructor = klass.getConstructors()(0)
-
+        val constructor = Class.forName("sml." + fields(1).capitalize + "Instruction").getConstructors()(0)
         var list = List[AnyRef]()
-        var a:AnyRef = null;
+        var element:AnyRef = null;
         //try to parse elements to int, if exception, leave as a string
         for (x <- 0 until fields.length){
           try {
-            a = new Integer(fields(x).toInt)
+            element = new Integer(fields(x).toInt)
           } catch {
-            case ioe: NumberFormatException => a = fields(x)
+            case ioe: NumberFormatException => element = fields(x)
           }
-          list::=a
+          list::=element
         }
-        val instance = constructor.newInstance(list.reverse:_*).asInstanceOf[Instruction]
-        program = program :+ instance
+        program = program :+ constructor.newInstance(list.reverse:_*).asInstanceOf[Instruction]
       }
     }
     new Machine(labels, program)
   }
 }
-
 
 object Translator {
   def apply(file: String) =
