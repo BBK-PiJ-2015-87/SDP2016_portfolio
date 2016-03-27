@@ -14,16 +14,19 @@ case class Machine(labels: Labels, prog: Vector[Instruction]) {
     prog.foldLeft("")(_ + _)
   }
 
-  // Execute the program in prog, beginning at instruction 0.
-  // Precondition: the program and its labels have been store properly.
+//  // Execute the program in prog, beginning at instruction 0.
+//  // Precondition: the program and its labels have been store properly.
+//  def execute(start: Int) ={
+//    start.until(prog.length).foreach(x => prog(x) execute this)
+//  }
+
+  //with PC counter
   def execute(start: Int) ={
     PC = start;
     while (PC < prog.length){
       prog(PC) execute this
       PC += 1
     }
-
-//      start.until(prog.length).foreach(x => prog(x) execute this)
   }
 
 }
@@ -33,14 +36,12 @@ object Machine extends App {
   override val args:Array[String] = new Array[String](3)
   args(0) = "C:\\Users\\Workstation\\Desktop\\IdeaProjects\\Birkbeck\\SDP2016_portfolio\\SML_Scala\\src\\factorial.sml"
 
-
   if (args.length == 0) {
     println("Machine: args should be sml code file to execute")
   } else {
     println("SML interpreter - Scala version")
-
-    val m = Translator(args(0)).readAndTranslate(new Machine(Labels(), Vector()))
-
+//    val m = Translator(args(0)).readAndTranslate(new Machine(Labels(), Vector()))
+    val m = Translator(args(0)).readAndTranslateRefl(new Machine(Labels(), Vector()))
     println("Here is the program; it has " + m.prog.size + " instructions.")
     println(m)
     println("Beginning program execution.")

@@ -13,12 +13,10 @@ class BnzInstruction(label: String, op: String, val reg: Int, next: String)
 
   override def execute(m: Machine) {
     val index = m.labels.labels.indexOf(next);
-    println(index)
-    println("Regs 20 - " + m.regs(20) + " Regs 21 - " + m.regs(21) + " Regs 22 - " + m.regs(22) )
 
-    //change program counter
     if (m.regs(reg) != 0) {
-      m.PC = index - 1;
+      m.PC = index - 1; //with PC counter
+//      m.execute(index) // no PC counter
     }
   }
 
